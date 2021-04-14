@@ -1,5 +1,6 @@
 import path from 'path'
 import Head from 'next/head'
+import Link from 'next/link'
 import Table from '../components/Table'
 import filesize from 'filesize'
 import { Vega } from 'react-vega';
@@ -144,9 +145,11 @@ export default function Home({ dataset, specs }) {
               </div>
               <div>
                 <h3 className="text-1xl">
-                  <a className="text-yellow-600" href={`/dataset/${resource.path}`}>
-                    {resource.format} ({filesize(resource.size, { bits: true })})
+                  <Link href={`/dataset/${resource.path}`}>
+                    <a className="text-yellow-600">
+                      {resource.format} ({filesize(resource.size, { bits: true })})
                     </a>
+                  </Link>
                 </h3>
               </div>
             </div>
