@@ -18,6 +18,6 @@ jobs:
           node-version: '12.x'
 
       - name: Building dataset
-      - run: curl https://raw.githubusercontent.com/datopian/portal.js/main/scripts/single-dataset-no-commit.sh> portal.sh
-      - run: git config --local user.email "$(git log --format='%ae' HEAD^!)" && git config --local user.name "$(git log --format='%an' HEAD^!)"
-      - run: source ./portal.sh
+        - run: curl https://raw.githubusercontent.com/datopian/portal.js/main/scripts/single-dataset-no-commit.sh> portal.sh
+        - run: git config --local user.email "$(git log --format='%ae' HEAD^!)" && git config --local user.name "$(git log --format='%an' HEAD^!)"
+        - run: source ./portal.sh
