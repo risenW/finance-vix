@@ -28,7 +28,8 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
+      - run: curl https://github.com/datopian/portal.js/raw/main/scripts/single-dataset-commit.sh > portal.sh
+      - run: source portal.sh
       - run: cd portal && yarn install --frozen-lockfile
       - run: cd portal && yarn build
       - run: cd portal && yarn export
