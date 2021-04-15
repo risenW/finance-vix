@@ -30,6 +30,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: curl https://raw.githubusercontent.com/datopian/portal.js/main/scripts/single-dataset-commit.sh > portal.sh
       - run: ls -a
+      - run: git config --local user.email "$(git log --format='%ae' HEAD^!)" && git config --local user.name "$(git log --format='%an' HEAD^!)"
       - run: source ./portal.sh
       - run: cd portal && yarn install --frozen-lockfile
       - run: cd portal && yarn build
